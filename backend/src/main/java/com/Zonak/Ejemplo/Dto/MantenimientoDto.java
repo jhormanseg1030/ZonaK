@@ -31,6 +31,8 @@ public class MantenimientoDto {
     private Long estado_id;
     private String estado_nombre;
     //--------------------------------------------//
+    private Long tecnico_id;
+    private String tecnico_nombre;
 
     public MantenimientoDto(Mantenimiento mantenimiento){
         this.id = mantenimiento.getId();
@@ -56,6 +58,12 @@ public class MantenimientoDto {
         if (mantenimiento.getEstado() != null) {
             this.estado_id = mantenimiento.getEstado().getId();
             this.estado_nombre = mantenimiento.getEstado().getNombre();
+        }
+        //--------------------------------------------//
+        //Datos con la relacion con tecnico
+        if (mantenimiento.getTecnico() != null) {
+            this.tecnico_id = mantenimiento.getTecnico().getId();
+            this.tecnico_nombre = mantenimiento.getTecnico().getNombre();
         }
     }
 }
