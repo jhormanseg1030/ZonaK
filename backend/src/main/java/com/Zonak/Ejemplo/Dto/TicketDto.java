@@ -29,6 +29,9 @@ public class TicketDto {
     private Long categoria_id;
     private String categoria_nombre;
     //--------------------------------------------//
+    private Long tecnico_id;
+    private String tecnico_nombre;
+    //--------------------------------------------//
 
     public TicketDto(Ticket ticket){
         this.id = ticket.getId();
@@ -53,6 +56,12 @@ public class TicketDto {
         if (ticket.getCategoria() != null) {
             this.categoria_id = ticket.getCategoria().getId();
             this.categoria_nombre = ticket.getCategoria().getNombre();
+        }
+        //--------------------------------------------//
+        //Datos con la relacion con tecnico
+        if (ticket.getTecnico() != null) {
+            this.tecnico_id = ticket.getTecnico().getId();
+            this.tecnico_nombre = ticket.getTecnico().getNombre();
         }
     }
 }
